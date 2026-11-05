@@ -1,0 +1,246 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   Royal Citadel College (R.C.C) — Kotobabi, Accra, Ghana — Brand Design Tokens
+   Royal Blue #2E75B6 (primary) · Royal Gold #F4C430 (accent)
+   Deep Gold #B8860B · Indigo #4A3B69 · Cream #FAF7EC · Ink #1A2340
+   Fonts: Oswald (titles) · Poppins (body) · Great Vibes (script)
+   ============================================================ */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-poppins);
+  --font-display: var(--font-oswald);
+  --font-script: var(--font-great-vibes);
+  --font-mono: var(--font-geist-mono);
+
+  /* Brand palette */
+  --color-royal: var(--royal);
+  --color-royal-deep: var(--royal-deep);
+  --color-royal-soft: var(--royal-soft);
+  --color-gold: var(--gold);
+  --color-gold-dark: var(--gold-dark);
+  --color-indigo: var(--indigo);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-ink: var(--ink);
+
+  /* shadcn semantic mapping */
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  /* Brand palette — Royal Citadel College (R.C.C) */
+  --royal: #2e75b6;
+  --royal-deep: #1b3a6b;
+  --royal-soft: #4a90d9;
+  --gold: #f4c430;
+  --gold-dark: #b8860b;
+  --indigo: #4a3b69;
+  --cream: #faf7ec;
+  --cream-dark: #e8e4d2;
+  --ink: #1a2340;
+
+  --radius: 0.5rem;
+  --background: oklch(1 0 0);
+  --foreground: #1a2340;
+  --card: oklch(1 0 0);
+  --card-foreground: #1a2340;
+  --popover: oklch(1 0 0);
+  --popover-foreground: #1a2340;
+  --primary: #2e75b6;
+  --primary-foreground: #ffffff;
+  --secondary: #faf7ec;
+  --secondary-foreground: #1a2340;
+  --muted: #faf7ec;
+  --muted-foreground: #4a3b69;
+  --accent: #f4c430;
+  --accent-foreground: #2e75b6;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #e6e0c8;
+  --input: #e6e0c8;
+  --ring: #b8860b;
+  --chart-1: #2e75b6;
+  --chart-2: #f4c430;
+  --chart-3: #b8860b;
+  --chart-4: #4a90d9;
+  --chart-5: #4a3b69;
+  --sidebar: #2e75b6;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #f4c430;
+  --sidebar-primary-foreground: #2e75b6;
+  --sidebar-accent: #4a90d9;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #4a90d9;
+  --sidebar-ring: #b8860b;
+}
+
+.dark {
+  --background: #1b3a6b;
+  --foreground: oklch(0.985 0 0);
+  --card: #2e75b6;
+  --card-foreground: oklch(0.985 0 0);
+  --popover: #2e75b6;
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: #1b3a6b;
+  --secondary: #4a90d9;
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: #4a90d9;
+  --muted-foreground: oklch(0.808 0 0);
+  --accent: #f4c430;
+  --accent-foreground: #2e75b6;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: #b8860b;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-oswald), var(--font-poppins), sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+}
+
+/* ============================================================
+   Brand utility classes
+   ============================================================ */
+.font-display {
+  font-family: var(--font-oswald), var(--font-poppins), sans-serif;
+}
+.font-script {
+  font-family: var(--font-great-vibes), cursive;
+}
+
+/* Diagonal ribbon separator under header */
+.diag-separator {
+  background: linear-gradient(100deg, var(--royal) 0%, var(--royal) 48%, var(--gold) 48.2%, var(--gold) 100%);
+  height: 10px;
+}
+.diag-separator-angled {
+  background: var(--gold);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 60%);
+}
+
+/* Hero carousel slide transitions */
+.slide-fade-enter {
+  opacity: 0;
+  transform: scale(1.04);
+}
+.slide-fade-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1200ms ease, transform 7000ms ease-out;
+}
+
+/* Subtle ken-burns zoom for hero */
+@keyframes kenburns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.12) translate(-1.5%, -1%); }
+}
+.animate-kenburns {
+  animation: kenburns 8s ease-out forwards;
+}
+
+/* Slow infinite zoom variant (for looping hero) */
+@keyframes kenburns-loop {
+  0% { transform: scale(1.05); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1.05); }
+}
+.animate-kenburns-loop {
+  animation: kenburns-loop 14s ease-in-out infinite;
+}
+
+/* Marquee for the orange accent banner */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* Decorative underline accent */
+.underline-gold {
+  position: relative;
+  display: inline-block;
+}
+.underline-gold::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 64px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+.underline-gold-center::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Custom scrollbar for scrollable lists */
+.scroll-brand::-webkit-scrollbar { width: 8px; }
+.scroll-brand::-webkit-scrollbar-track { background: transparent; }
+.scroll-brand::-webkit-scrollbar-thumb {
+  background: var(--royal-soft);
+  border-radius: 8px;
+}
+.scroll-brand::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
+
+/* Pill badge level dot */
+.level-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: var(--gold);
+  display: inline-block;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.18);
+}
